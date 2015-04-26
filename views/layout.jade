@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    base(href='/')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='../lib/angular/angular.min.js')
+    script(src='../lib/ui-router/ui-router.js')
+    script(src='../javascripts/app/app.js')
+  body(ng-app='app')
+    block content
