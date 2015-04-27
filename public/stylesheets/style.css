@@ -1,3 +1,29 @@
+h1, h2, h3, h4, h5 {
+	font-family: 'Oswald', sans-serif;
+}
+
+body {
+	background: #f4f5f7
+}
+
+h2 {
+	text-transform:uppercase;
+	font-weight:400;
+	letter-spacing: .1em;
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.opensans {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.oswald {
+	font-family: 'Oswald', sans-serif;
+}
+
 body {
   margin:0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,6 +31,7 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
 .input-holder {
@@ -18,7 +45,6 @@ a {
 	width: 50%;
 }
 
-
 .button-holder button {
 	padding: 13px 46px;
 	border:none;
@@ -28,7 +54,102 @@ a {
 	transition: .2s opacity;
 }
 
-
 .button-holder button:hover {
 	opacity: .5;
 }
+
+.sidemenu-container {
+	width:300px;
+	height:200vh;
+	background: #000d25;
+	position: absolute;
+	left:0px;
+	top:0px;
+}
+
+.main-content-container {
+	padding-left:300px !important;
+	box-sizing:border-box;
+	width:100%;
+}
+
+.main-content-holder {
+	padding:10px 20px;
+}
+
+.side-menu-title {
+	font-weight: 200;
+  font-size: 20px;
+  letter-spacing: .1em;
+  text-align: center;
+  color:rgba(255,255,255,.95);
+  margin-top:25px;
+}
+
+.menulist p {
+	font-size:18px;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 200;
+	letter-spacing: .1em;
+	cursor: pointer;
+	border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 15px;
+}
+
+.menulist p.lastemenulist {
+	border-bottom: 1px solid rgba(255,255,255,.15);
+	padding-bottom:15px;
+}
+
+.menu-locations-list p {
+	float:left;
+	padding-right:20px;
+	text-transform:uppercase;
+	letter-spacing: .05em;
+	margin: 0;
+  padding: 20px;
+  background: #ffffff;
+  border-left: 2px solid #000d25;
+  margin-right:5px;
+  color: #676C6E;
+  box-shadow: 0px 0px 1px rgba(0,0,0,.1), 0px 1px 1.5px rgba(0,0,0,.24)
+}
+
+.menu-locations-list p:hover {
+	opacity:.8;
+	cursor:pointer;
+}
+
+.menu-locations-list p a {
+	color: #676C6E;
+}
+
+.clearfix {
+	clear:both;
+}
+
+.menu-item {
+	background: white;
+  box-shadow: 0px 0px 1px rgba(0,0,0,.1), 0px 1px 1.5px rgba(0,0,0,.24);
+  width:40%;
+  float:left;
+  margin-right:20px;
+}
+
+.menu-items p {
+	float:left;
+	margin-right:15px;
+	font-size:16px;
+	background:#ffffff;
+	padding:14px 28px;
+	text-transform: uppercase;
+	box-shadow: 0px 0px 1px rgba(0,0,0,.1), 0px 1px 1.5px rgba(0,0,0,.24);
+	border-left:2px solid #00B7FF;
+}
+
+.nicebutton {
+	box-shadow: 0px 0px 1px rgba(0,0,0,.1), 0px 1px 1.5px rgba(0,0,0,.24);
+}
+
+
+

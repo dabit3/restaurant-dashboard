@@ -2,8 +2,10 @@ extends ../../../layout
 
 block content
 	h2 Flowood Menu Dashboard
-	a(ui-sref='home.flowood.appetizers')
-		p Click here to edit appetizers
-	a(ui-sref='home.flowood.entrees')
-		p Click here to edit entrees
+	div.menu-items
+		a(ui-sref='menus.flowood.appetizers')
+			p Appetizers
+		a(ui-sref='menus.flowood.entrees')
+			p Entrees
+		div.clearfix
 	div(ui-view)

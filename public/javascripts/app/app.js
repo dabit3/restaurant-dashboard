@@ -5,19 +5,19 @@ app.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 		url: '/',
 		templateUrl: 'views/client/home'
 	})
-	.state('home.menus', {
+	.state('menus', {
 		url: 'menus', 
 		templateUrl: 'views/client/menus'
 	})
-	.state('home.flowood', {
+	.state('menus.flowood', {
 		url: 'flowood/dashboard', 
 		templateUrl: 'views/client/locations/flowood/dashboard'
 	})
-	.state('home.flowood.appetizers', {
+	.state('menus.flowood.appetizers', {
 		url: 'appetizers',
 		templateUrl: 'views/client/locations/flowood/appetizers'
 	})
-	.state('home.flowood.entrees', {
+	.state('menus.flowood.entrees', {
 		url: 'entrees',
 		templateUrl: 'views/client/locations/flowood/entrees'
 	})

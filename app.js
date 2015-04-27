@@ -18,6 +18,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade'); 
 
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -36,9 +37,10 @@ app.get('/views/client/*/', function(req, res){
     res.render('../views/client/' + req.params[0]);
 })
 
-app.get('/views/client/flowood/*', function(req, res) {
-  res.render('../views/client/flowood/' + req.params[0]);
-})
+
+// app.get('/views/client/flowood/*', function(req, res) {
+//   res.render('../views/client/flowood/' + req.params[0]);
+// })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
