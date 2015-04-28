@@ -1,9 +1,15 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router', 'ngResource']);
 
 app.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 	$stateProvider.state('home', {
 		url: '/',
 		templateUrl: 'views/client/home'
+	})
+	.state('locations', {
+		url: 'locations',
+		templateUrl: 'views/client/locations',
+		controller: 'LocationsController',
+		controllerAs: 'location'
 	})
 	.state('menus', {
 		url: 'menus', 
@@ -15,37 +21,47 @@ app.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 	})
 	.state('menus.flowood.appetizers', {
 		url: 'appetizers',
-		templateUrl: 'views/client/locations/flowood/appetizers'
+		templateUrl: 'views/client/locations/flowood/appetizers',
+		controller: 'FlowoodAppController',
+		controllerAs: 'app'
 	})
 	.state('menus.flowood.entrees', {
 		url: 'entrees',
-		templateUrl: 'views/client/locations/flowood/entrees'
+		templateUrl: 'views/client/locations/flowood/entrees',
+		controller: 'FlowoodEntreeController',
+		controllerAs: 'entree'
 	})
 
 	$urlRouterProvider.otherwise( '/');
-})
+});
 
-app.controller('FlowoodAppController', FlowoodAppController);
+app.factory('entree', function ($resource) {
+    return $resource('flowood/entrees/new', {
+    	 itemId: '@_id'
+    	}, {
+    		update: {
+    			method: 'PUT'
+    		}
+    	});
+  });
 
-function FlowoodAppController($http) {
-	var vm = this;
-	$http.get('http://localhost:3000/Flowood/getAppetizers')
-	.then(function(data) {
-		vm.data = data.data;
-		console.log(vm.data)
+app.factory('appetizer', function ($resource) {
+    return $resource('flowood/appetizers/new', {
+    	 itemId: '@_id'
+    	}, {
+    		update: {
+    			method: 'PUT'
+    		}
+    	});
+  });
+
+app.factory('location', function($resource) {
+	return $resource('locations', {
+		itemId: '@_id'
+	}, {
+		update: {
+			method: 'PUT'
+		}
 	});
-}
+});
 
-app.controller('FlowoodEntreeController', FlowoodEntreeController);
-
-function FlowoodEntreeController($http) {
-	var vm = this;
-	$http.get('http://localhost:3000/Flowood/getEntrees')
-	.then(function(data) {
-		vm.data = data.data;
-		console.log(vm.data)
-	});
-	vm.addEntree = function(http) {
-		$http.post('http://localhost:3000/Flowood/getEntrees')
-	}
-}

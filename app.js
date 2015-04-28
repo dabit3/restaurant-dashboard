@@ -8,8 +8,9 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var flowoodMenu = require('./routes/flowoodMenu');
+var locations = require('./routes/locations');
 
-var db = require('./models/db');
+var db = require('./models/db'); 
 var flowoodMenuSchema = require('./models/flowoodmenu')
 
 var app = express();
@@ -30,6 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes)
 app.use('/users', users);
 app.use('/flowood', flowoodMenu);
+app.use('/locations', locations)
+
 
 // app.get('*', routes);
 

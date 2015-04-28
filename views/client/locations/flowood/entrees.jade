@@ -3,21 +3,33 @@ extends ../../../layout
 block content
 	h2 Entrees
 
-	div(class="form-holder", ng-controller="FlowoodEntreeController as entree")
-		form(method='post', action='/flowood/entrees')
+	//- div(class="form-holder", ng-controller="FlowoodEntreeController as entree")
+	//- 	form(method='post', action='/flowood/entrees')
+	//- 		div(class="input-holder")
+	//- 			input(for='title' name='title' placeholder='Entree Name')
+	//- 		div(class="input-holder")
+	//- 			input(for='description' name='description' placeholder='description')
+	//- 		div(class="input-holder")
+	//- 			input(for='option' name='option' placeholder='options - optional')
+	//- 		div(class="button-holder")
+	//- 			button Submit
+	
+	div
+		div(class="form-holder")
+		form(ng-submit='entree.addMenuItem()')
 			div(class="input-holder")
-				input(for='title' name='title' placeholder='Entree Name')
+				input(for='title' name='title' placeholder='Entree Name', ng-model='entree.name')
+			div(class="input-holder" )
+				input(for='description', ng-model='entree.description', name='description' placeholder='description')
 			div(class="input-holder")
-				input(for='description' name='description' placeholder='description')
-			div(class="input-holder")
-				input(for='option' name='option' placeholder='options - optional')
+				input(for='option' name='option', ng-model='entree.options', placeholder='options - optional')
 			div(class="button-holder")
 				button Submit
 
-	div(ng-controller="FlowoodEntreeController as entree", style="margin-top:20px;")
-		div.menu-item(ng-repeat="entree in entree.data" style="border:1px solid rgba(0,0,0,.1);padding:0px 20px 25px;margin-bottom:10px;")
-			h2 {{entree.title}}
-			p(style="font-size:18px;") {{entree.description}}
-			p(style="color:rgba(0,0,0,.6);font-style:italic;font-size:14px") {{entree.option}}
-			div(style="margin:25px 0px 10px;")
-				a.nicebutton(href='/flowood/entrees/delete/{{entree._id}}', style="color:#ffffff;background:#00B7FF;padding:10px 25px;text-decoration:none;") Delete
+		div(style="margin-top:20px;")
+			div.menu-item(ng-repeat="entree in entree.data" style="border:1px solid rgba(0,0,0,.1);padding:0px 20px 25px;margin-bottom:10px;")
+				h2 {{entree.title}}
+				p(style="font-size:18px;") {{entree.description}}
+				p(style="color:rgba(0,0,0,.6);font-style:italic;font-size:14px") {{entree.option}}
+				div(style="margin:25px 0px 10px;")
+					a.nicebutton(href='/flowood/entrees/delete/{{entree._id}}', style="color:#ffffff;background:#00B7FF;padding:10px 25px;text-decoration:none;") Delete

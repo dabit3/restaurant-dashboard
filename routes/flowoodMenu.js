@@ -4,6 +4,8 @@ var express = require('express'),
     bodyParser = require('body-parser'), //parses information from POST
     methodOverride = require('method-override'); //used to manipulate POST
 
+var flowood = require('../controllers/flowoodController');
+
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(methodOverride(function(req, res){
       if (req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -83,6 +85,12 @@ router.route('/entrees/delete/:id')
 			})
 		});
 	})
+
+router.route('/entrees/new')
+	.post(flowood.createEntree); 
+
+router.route('/appetizers/new')
+	.post(flowood.createAppetizer)
 
 router.route('/getEntrees')
 	.get(function(req, res, next) {

@@ -7,7 +7,7 @@ var flowoodMenuSchema = new mongoose.Schema({
 		title: String, 
 		description: String, 
 		option: String
-	},
+	}, 
 	entrees: {
 		title: String, 
 		description: String, 
