@@ -1,38 +1,41 @@
 var app = angular.module('app', ['ui.router', 'ngResource']);
 
 app.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
-	$stateProvider.state('home', {
-		url: '/',
-		templateUrl: 'views/client/home'
+	$stateProvider
+	.state('home', {
+		url: '/home',
+		templateUrl: 'views/home.html',
+		controller: 'MainController'
 	})
 	.state('locations', {
-		url: 'locations',
-		templateUrl: 'views/client/locations',
+		url: '/locations',
+		templateUrl: 'views/locations.html',
 		controller: 'LocationsController',
 		controllerAs: 'location'
 	})
 	.state('menus', {
-		url: 'menus', 
-		templateUrl: 'views/client/menus'
+		url: '/menus',
+		templateUrl: 'views/menus.html',
+		controller: 'MainController'
 	})
 	.state('menus.flowood', {
-		url: 'flowood/dashboard', 
-		templateUrl: 'views/client/locations/flowood/dashboard'
+		url: '/flowood/dashboard',
+		templateUrl: 'views/locations/flowood/dashboard.html'
 	})
 	.state('menus.flowood.appetizers', {
-		url: 'appetizers',
-		templateUrl: 'views/client/locations/flowood/appetizers',
+		url: '/appetizers',
+		templateUrl: 'views/locations/flowood/appetizers.html',
 		controller: 'FlowoodAppController',
 		controllerAs: 'app'
 	})
 	.state('menus.flowood.entrees', {
-		url: 'entrees',
-		templateUrl: 'views/client/locations/flowood/entrees',
+		url: '/entrees',
+		templateUrl: 'views/locations/flowood/entrees.html',
 		controller: 'FlowoodEntreeController',
 		controllerAs: 'entree'
 	})
 
-	$urlRouterProvider.otherwise( '/');
+	$urlRouterProvider.otherwise( '/home');
 });
 
 app.factory('entree', function ($resource) {
@@ -56,7 +59,7 @@ app.factory('appetizer', function ($resource) {
   });
 
 app.factory('location', function($resource) {
-	return $resource('locations', {
+	return $resource('/locations', {
 		itemId: '@_id'
 	}, {
 		update: {
