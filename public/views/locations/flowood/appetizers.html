@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <base href="/">
-    <title></title>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="../lib/angular/angular.min.js"></script>
-    <script src="../lib/ui-router/ui-router.js"></script>
-    <script src="../lib/angular-resource/angular-resource.min.js"></script>
-    <script src="../javascripts/app/app.js"></script>
-    <script src="../javascripts/app/controllers/flowoodControllers.js"></script>
-    <script src="../javascripts/app/controllers/locationsController.js"></script>
-</head>
-<body ng-app="app">
-<div class="sidemenu-container">
-    <section class="sidemenu"><a ui-sref="home"><h1 class="side-menu-title">MAIN MENU</h1></a>
-        <section style="padding-left:20px;padding-right:20px;" class="menulist"><a ui-sref="menus"><p>EDIT MENUS</p></a><a
-                ui-sref="locations"><p class="lastemenulist">EDIT LOCATIONS</p></a></section>
-    </section>
-</div>
+
 <div><h2>Appetizers</h2>
 
     <div class="form-holder">
@@ -36,17 +15,17 @@
         </form>
     </div>
     <div style="margin-top:20px;">
-        <div ng-repeat="app in app.data"
+        <div ng-repeat="apps in app.data"
              style="border:1px solid rgba(0,0,0,.1);padding:0px 20px 25px;;margin-bottom:10px;" class="menu-item"><h2>
-            {{app.title}}</h2>
+            {{apps.title}}</h2>
 
-            <p style="font-size:18px;">{{app.description}}</p>
+            <p style="font-size:18px;">{{apps.description}}</p>
 
-            <p style="color:rgba(0,0,0,.6);font-style:italic;font-size:14px">{{app.option}}</p><a
-                    href="/flowood/appetizers/delete/{{app._id}}"
-                    style="color:#ffffff;background:#00B7FF;padding:10px 25px;text-decoration:none;" class="nicebutton">Delete</a>
+            <p style="color:rgba(0,0,0,.6);font-style:italic;font-size:14px">{{apps.option}}</p>
+            <a 
+            href="/flowood/appetizers/delete/{{apps._id}}" 
+            style="color:#ffffff;background:#00B7FF;padding:10px 25px;text-decoration:none;" class="nicebutton" 
+            ng-click="app.deleteAppetizer()">Delete</a>
         </div>
     </div>
 </div>
-</body>
-</html>

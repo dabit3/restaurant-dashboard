@@ -5,7 +5,6 @@ var FlowoodAppetizers = mongoose.model('FlowoodAppetizers')
 
 exports.createEntree = function(req, res) {
 	var entree = new FlowoodEntrees(req.body);
-
 	entree.save(function(err) {
 		if (err) { return res.json(500, err)
 		} 
@@ -13,10 +12,8 @@ exports.createEntree = function(req, res) {
 	})
 }
 
-
 exports.createAppetizer = function(req, res) {
 	var appetizer = new FlowoodAppetizers(req.body);
-
 	appetizer.save(function(err) {
 		if (err) { return res.json(500, err)
 		} 

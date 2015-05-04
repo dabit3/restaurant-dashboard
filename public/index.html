@@ -13,12 +13,16 @@
     <script src="javascripts/app/controllers/flowoodControllers.js"></script>
     <script src="javascripts/app/controllers/locationsController.js"></script>
     <script src="javascripts/app/controllers/mainController.js"></script>
+    <script src="javascripts/app/controllers/beerController.js"></script>
 </head>
 <body ng-app="app">
 <div class="sidemenu-container">
     <section class="sidemenu"><a ui-sref="home"><h1 class="side-menu-title">MAIN MENU</h1></a>
-        <section style="padding-left:20px;padding-right:20px;" class="menulist"><a ui-sref="menus"><p>EDIT MENUS</p></a><a
-                ui-sref="locations"><p class="lastemenulist">EDIT LOCATIONS</p></a></section>
+        <section style="padding-left:20px;padding-right:20px;" class="menulist">
+            <a ui-sref="menus"><p>EDIT MENUS</p></a>
+            <a ui-sref="locations"><p >EDIT LOCATIONS</p></a>
+            <a ui-sref="beer"><p class="lastemenulist">BEER</p></a>
+        </section>
     </section>
 </div>
 

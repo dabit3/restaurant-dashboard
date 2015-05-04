@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <base href="/">
-    <title></title>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="../lib/angular/angular.min.js"></script>
-    <script src="../lib/ui-router/ui-router.js"></script>
-    <script src="../lib/angular-resource/angular-resource.min.js"></script>
-    <script src="../javascripts/app/app.js"></script>
-    <script src="../javascripts/app/controllers/flowoodControllers.js"></script>
-    <script src="../javascripts/app/controllers/locationsController.js"></script>
-</head>
-<body ng-app="app">
-<div class="sidemenu-container">
-    <section class="sidemenu"><a ui-sref="home"><h1 class="side-menu-title">MAIN MENU</h1></a>
-        <section style="padding-left:20px;padding-right:20px;" class="menulist"><a ui-sref="menus"><p>EDIT MENUS</p></a><a
-                ui-sref="locations"><p class="lastemenulist">EDIT LOCATIONS</p></a></section>
-    </section>
-</div>
+
 <h2>Flowood Menu Dashboard</h2>
 
 <div class="menu-items"><a ui-sref="menus.flowood.appetizers"><p>Appetizers</p></a><a ui-sref="menus.flowood.entrees">
@@ -28,5 +7,3 @@
     <div class="clearfix"></div>
 </div>
 <div ui-view></div>
-</body>
-</html>

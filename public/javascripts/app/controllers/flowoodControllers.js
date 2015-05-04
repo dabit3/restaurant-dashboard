@@ -2,7 +2,7 @@ angular.module('app')
 .controller('FlowoodEntreeController', FlowoodEntreeController)
 .controller('FlowoodAppController', FlowoodAppController);
 
-function FlowoodEntreeController($http, entree, $scope, $interval) {
+function FlowoodEntreeController($http, entree, $scope, $interval, $timeout) {
 	var vm = this;
 
 	$http.get('http://localhost:3000/Flowood/getEntrees')
@@ -40,10 +40,19 @@ function FlowoodEntreeController($http, entree, $scope, $interval) {
       vm.name = '';
       vm.description = '';
       vm.options = '';
-  };	    
+  };
+  vm.deleteMenuItem = function() {
+  	$timeout(function() {
+  		$http.get('http://localhost:3000/Flowood/getEntrees')
+					.then(function(data) {
+						vm.data = data.data;
+					});
+			console.log("Deleted item")
+  	}, 100)
+  }
 }
 
-function FlowoodAppController($http, appetizer) {
+function FlowoodAppController($http, appetizer, $timeout) {
 	var vm = this;
 	$http.get('http://localhost:3000/Flowood/getAppetizers')
 	.then(function(data) {
@@ -70,4 +79,15 @@ function FlowoodAppController($http, appetizer) {
 	  vm.description = '';
 	  vm.options = '';
 	 };
+
+	 vm.deleteAppetizer = function() {
+  	$timeout(function() {
+  		$http.get('http://localhost:3000/Flowood/getAppetizers')
+					.then(function(data) {
+						vm.data = data.data;
+					});
+			console.log("Deleted item")
+  	}, 100)
+  }
+
 }

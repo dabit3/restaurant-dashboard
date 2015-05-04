@@ -50,47 +50,47 @@ router.route('/appetizers/delete/:id')
 		mongoose.model('FlowoodAppetizers').findById(req.params.id, function(err, appetizer) {
 			if(err) {return next(err);}
 			appetizer.remove(function(err) {
-				if(err) {}
-				res.redirect('/#/appetizers')
+				if(err) {};
+				
 			})
 		});
 	})
-
-router.route('/entrees')
-	.post(function(req, res) {
-		var title = req.body.title;
-		var description = req.body.description;
-		var option = req.body.option;
-		mongoose.model('FlowoodEntrees').create({
-			title: title, 
-			description: description, 
-			option: option
-		}, function(err, appetizer) {
-			if (err) {
-				console.log('there was an error')
-			} else {
-				console.log('Entree created: ' + appetizer);
-				res.redirect('/#/entrees')
-			}
-		})
-	});
 
 router.route('/entrees/delete/:id')
 	.get(function(req, res) {
-		mongoose.model('FlowoodEntrees').findById(req.params.id, function(err, appetizer) {
+		mongoose.model('FlowoodEntrees').findById(req.params.id, function(err, entree) {
 			if(err) {return next(err);}
-			appetizer.remove(function(err) {
+			entree.remove(function(err) {
 				if(err) {}
-				res.redirect('/#/entrees')
+				// res.redirect('/#/entrees')
 			})
-		});
+		}); 
 	})
 
-router.route('/entrees/new')
-	.post(flowood.createEntree); 
+// router.route('/entrees')
+// 	.post(function(req, res) {
+// 		var title = req.body.title;
+// 		var description = req.body.description;
+// 		var option = req.body.option;
+// 		mongoose.model('FlowoodEntrees').create({
+// 			title: title, 
+// 			description: description, 
+// 			option: option
+// 		}, function(err, appetizer) {
+// 			if (err) {
+// 				console.log('there was an error')
+// 			} else {
+// 				console.log('Entree created: ' + appetizer);
+// 				res.redirect('/#/entrees')
+// 			}
+// 		})
+// 	});
+
+router.route('/entrees')
+	.post(flowood.createEntree)
 
 router.route('/appetizers/new')
-	.post(flowood.createAppetizer)
+	.post(flowood.createAppetizer);
 
 router.route('/getEntrees')
 	.get(function(req, res, next) {
