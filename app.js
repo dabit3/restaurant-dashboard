@@ -8,9 +8,11 @@ var bodyParser = require('body-parser');
 // var routes = require('./routes/index');
 var flowoodMenu = require('./routes/flowoodMenu');
 var locations = require('./routes/locations');
+var beers = require('./routes/beers')
 
 var db = require('./models/db');
-var flowoodMenuSchema = require('./models/flowoodmenu')
+var flowoodMenuSchema = require('./models/flowoodmenu');
+// var flowoodBeers = require('./models/beers/flowoodBeers')
 
 var app = express();
 
@@ -26,6 +28,7 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use('/beers', beers)
 app.use('/flowood', flowoodMenu);
 app.use('/locations', locations)
 // app.get('/', routes);
@@ -59,6 +62,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

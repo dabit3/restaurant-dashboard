@@ -13,6 +13,17 @@ app.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 		controller: 'LocationsController',
 		controllerAs: 'location'
 	})
+	.state('beer', {
+		url: '/beer',
+		templateUrl: 'views/beer/index.html',
+		controller: 'BeerController'
+	})
+	.state('beer.flowood', {
+		url: '/flowood',
+		templateUrl: 'views/beer/flowood.html',
+		controller: 'BeerController',
+		controllerAs: 'beer'
+	})
 	.state('menus', {
 		url: '/menus',
 		templateUrl: 'views/menus.html',
@@ -39,12 +50,13 @@ app.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 });
 
 app.factory('entree', function ($resource) {
-    return $resource('flowood/entrees/new', {
+    return $resource('flowood/entrees', {
     	 itemId: '@_id'
     	}, {
     		update: {
     			method: 'PUT'
-    		}
+    		},
+    		delete: { method: 'DELETE', params: {id: '@id'} }
     	});
   });
 
@@ -68,3 +80,12 @@ app.factory('location', function($resource) {
 	});
 });
 
+app.factory('flowoodBeers', function($resource) {
+	return $resource('/beers/flowood/new', {
+		itemId: '@_id'
+	}, {
+		update: {
+			method: 'PUT'
+		}
+	});
+});
